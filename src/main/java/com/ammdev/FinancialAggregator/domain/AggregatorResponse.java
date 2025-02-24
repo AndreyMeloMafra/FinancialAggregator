@@ -5,12 +5,17 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @AllArgsConstructor
 @Builder
-public class AggregatorResponse {
+@Getter
+@Setter
+public class AggregatorResponse implements Serializable {
 
     @NotNull(message = Constants.NOT_NULL_MESSAGE)
     private Double totalValue;
