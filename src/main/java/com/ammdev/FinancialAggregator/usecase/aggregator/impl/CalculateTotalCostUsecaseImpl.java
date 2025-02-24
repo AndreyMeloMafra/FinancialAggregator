@@ -4,10 +4,12 @@ import com.ammdev.FinancialAggregator.domain.Cost;
 import com.ammdev.FinancialAggregator.exception.InvalidMonetaryValueException;
 import com.ammdev.FinancialAggregator.usecase.aggregator.CalculateTotalCostUsecase;
 import com.ammdev.FinancialAggregator.usecase.aggregator.Constants;
+import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
+@Component
 public class CalculateTotalCostUsecaseImpl implements CalculateTotalCostUsecase {
 
     @Override
