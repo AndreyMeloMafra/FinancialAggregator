@@ -8,10 +8,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @AllArgsConstructor
 @Builder
 @Getter
-public class Instalment {
+public class Instalment implements Serializable {
     @NotNull(message = Constants.NOT_NULL_MESSAGE)
     private Integer number;
 
@@ -23,11 +25,10 @@ public class Instalment {
     private String startDate;
 
     @Valid
-    @NotBlank(message = Constants.NOT_BLANK_MESSAGE)
-    @Pattern(regexp = Constants.COST_TYPE_PATTERN, message = Constants.OUT_OF_PATTERN_MESSAGE)
+    @NotNull(message = Constants.NOT_BLANK_MESSAGE)
     private CostType costType;
 
     @Valid
-    @NotBlank(message = Constants.NOT_BLANK_MESSAGE)
+    @NotNull(message = Constants.NOT_NULL_MESSAGE)
     private Tax lateFee;
 }

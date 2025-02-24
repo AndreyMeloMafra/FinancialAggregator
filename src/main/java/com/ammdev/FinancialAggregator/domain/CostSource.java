@@ -22,10 +22,4 @@ public enum CostSource {
     CostSource(String descricao) {
         this.descricao = descricao;
     }
-
-    public static String getPatternString() {
-        return Stream.of(CostSource.values())
-                .map(Enum::name)
-                .collect(Collectors.joining("|"));
-    }
 }

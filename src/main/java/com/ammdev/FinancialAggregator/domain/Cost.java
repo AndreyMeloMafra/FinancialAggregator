@@ -8,9 +8,11 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Builder
 @Getter
-public class Cost {
+public class Cost implements Serializable {
     @NotBlank(message = Constants.NOT_BLANK_MESSAGE)
     private String name;
 
@@ -30,7 +32,6 @@ public class Cost {
 
     // Se costSource for igual a CREDIT_CARD, FINANCING ou LOAN, o campo instalment é obrigatório
     @Valid
-    @NotBlank(message = Constants.NOT_BLANK_MESSAGE)
-    @Pattern(regexp = Constants.COST_SOURCE_PATTERN, message = Constants.OUT_OF_PATTERN_MESSAGE)
+    @NotNull(message = Constants.NOT_NULL_MESSAGE)
     private CostSource costSource;
 }
