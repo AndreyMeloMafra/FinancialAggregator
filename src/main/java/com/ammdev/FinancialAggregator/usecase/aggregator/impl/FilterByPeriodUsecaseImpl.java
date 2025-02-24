@@ -4,11 +4,13 @@ import com.ammdev.FinancialAggregator.domain.Cost;
 import com.ammdev.FinancialAggregator.domain.Period;
 import com.ammdev.FinancialAggregator.usecase.aggregator.FilterByPeriodUsecase;
 import com.ammdev.FinancialAggregator.utils.DateUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class FilterByPeriodUsecaseImpl implements FilterByPeriodUsecase {
 
     @Override
