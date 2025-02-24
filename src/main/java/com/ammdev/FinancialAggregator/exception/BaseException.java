@@ -1,15 +1,15 @@
 package com.ammdev.FinancialAggregator.exception;
 
+import com.ammdev.FinancialAggregator.domain.Error;
+import lombok.Getter;
+
+@Getter
 public abstract class BaseException extends RuntimeException  {
 
-    protected String message;
-    protected Integer code;
-    protected String detail;
+    protected Error error;
 
     public BaseException(Integer code, String message, String detail) {
         super(message);
-        this.code = code;
-        this.message = message;
-        this.detail = detail;
+        error = new Error(code, message, detail);
     }
 }
