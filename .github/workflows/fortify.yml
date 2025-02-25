@@ -26,7 +26,6 @@ jobs:
         id: extract_version
         run: echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
-
       - name: Run FoD SAST Scan
         uses: fortify/github-action@a92347297e02391b857e7015792cd1926a4cd418
         with:
