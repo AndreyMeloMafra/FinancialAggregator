@@ -3,9 +3,9 @@ package com.ammdev.financialaggregator.template;
 import com.ammdev.financialaggregator.domain.CostType;
 import com.ammdev.financialaggregator.domain.Instalment;
 
-public class InstalmentTemplate {
+class InstalmentTemplate {
 
-    public static Instalment createInstalment() {
+    static Instalment createInstalment() {
         return Instalment.builder()
                 .value(150.00)
                 .number(1)

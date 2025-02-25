@@ -5,9 +5,9 @@ import com.ammdev.financialaggregator.domain.CostSource;
 
 import java.util.List;
 
-public class CostTemplate {
+class CostTemplate {
 
-    public static Cost createCreditCardCost() {
+    static Cost createCreditCardCost() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.CREDIT_CARD)
@@ -18,7 +18,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static Cost createFinancingCost() {
+    static Cost createFinancingCost() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.FINANCING)
@@ -29,7 +29,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static Cost createLoanCost() {
+    static Cost createLoanCost() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.LOAN)
@@ -40,7 +40,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static Cost createDebitCardCost() {
+    static Cost createDebitCardCost() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.DEBIT_CARD)
@@ -50,7 +50,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static Cost createCreditCardWithoutInstalment() {
+    static Cost createCreditCardWithoutInstalment() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.CREDIT_CARD)
@@ -60,7 +60,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static Cost createFinancingWithoutInstalment() {
+    static Cost createFinancingWithoutInstalment() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.FINANCING)
@@ -70,7 +70,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static Cost createLoanWithoutInstalment() {
+    static Cost createLoanWithoutInstalment() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.LOAN)
@@ -80,7 +80,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static Cost createCostWithNullValue() {
+    static Cost createCostWithNullValue() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.CREDIT_CARD)
@@ -91,7 +91,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static Cost createCostWithInvalidPattern() {
+    static Cost createCostWithInvalidPattern() {
         return Cost.builder()
                 .name("Cost 1")
                 .costSource(CostSource.CREDIT_CARD)
@@ -102,7 +102,7 @@ public class CostTemplate {
                 .build();
     }
 
-    public static List<Cost> createManyCosts() {
+    static List<Cost> createManyCosts() {
         return List.of(
                 Cost.builder()
                         .name("Cost 1")
@@ -131,7 +131,7 @@ public class CostTemplate {
         );
     }
 
-    public static List<Cost> createCostsWithMultipleCostSources() {
+    static List<Cost> createCostsWithMultipleCostSources() {
         return List.of(
                 Cost.builder()
                         .name("Cost 1")
