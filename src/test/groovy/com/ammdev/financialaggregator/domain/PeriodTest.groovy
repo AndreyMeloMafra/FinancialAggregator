@@ -18,7 +18,7 @@ class PeriodTest extends Specification {
         def exception = thrown(InvalidDatePeriodException)
 
         and: "a mensagem deve ser a esperada"
-        exception.getError().getDetail() == Constants.INVALID_DATE_PERIOD_EXCEPTION_DETAIL
+        exception.getError().detail() == Constants.INVALID_DATE_PERIOD_EXCEPTION_DETAIL
 
         where: "as datas são"
         scenario            | start         | end
@@ -42,7 +42,7 @@ class PeriodTest extends Specification {
         def exception = thrown(InvalidStringDateException)
 
         and: "a mensagem deve ser a esperada"
-        exception.getError().getDetail() == Constants.INVALID_STRING_DATE_EXCEPTION_DETAIL
+        exception.getError().detail() == Constants.INVALID_STRING_DATE_EXCEPTION_DETAIL
 
         where: "as datas são"
         scenario                | start         | end

@@ -32,10 +32,10 @@ public class CalculateTotalCostUsecaseImpl implements CalculateTotalCostUsecase 
             throw new InvalidMonetaryValueException(Constants.INVALID_MONETARY_VALUE_EXCEPTION_DETAIL);
         }
 
-        return cost.getValue();
+        return cost.value();
     }
 
     private boolean validateCostValue(Cost cost) {
-        return ObjectUtils.isEmpty(cost.getValue());
+        return ObjectUtils.isEmpty(cost.value());
     }
 }

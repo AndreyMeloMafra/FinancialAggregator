@@ -14,10 +14,10 @@ public class ClassifyCostUsecaseImpl implements ClassifyCostUsecase {
 
     @Override
     public AggregatorResponse classifyCost(final List<Cost> costs) {
-        List<Cost> accountCosts = costs.stream().filter(cost -> cost.getCostSource().equals(CostSource.BANK_ACCOUNT)).toList();
-        List<Cost> creditCardCosts = costs.stream().filter(cost -> cost.getCostSource().equals(CostSource.CREDIT_CARD)).toList();
-        List<Cost> financingCosts = costs.stream().filter(cost -> cost.getCostSource().equals(CostSource.FINANCING)).toList();
-        List<Cost> loanCosts = costs.stream().filter(cost -> cost.getCostSource().equals(CostSource.LOAN)).toList();
+        List<Cost> accountCosts = costs.stream().filter(cost -> cost.costSource().equals(CostSource.BANK_ACCOUNT)).toList();
+        List<Cost> creditCardCosts = costs.stream().filter(cost -> cost.costSource().equals(CostSource.CREDIT_CARD)).toList();
+        List<Cost> financingCosts = costs.stream().filter(cost -> cost.costSource().equals(CostSource.FINANCING)).toList();
+        List<Cost> loanCosts = costs.stream().filter(cost -> cost.costSource().equals(CostSource.LOAN)).toList();
 
         List<Cost> others = new ArrayList<>(costs);
 

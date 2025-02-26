@@ -38,7 +38,7 @@ class FilterByPeriodUseCaseTest extends Specification{
         LocalDate localDateEndDate = LocalDate.parse(endDate, formatter)
 
         result.each { cost ->
-            LocalDate costDate = LocalDate.parse(cost.getDate(), formatter)
+            LocalDate costDate = LocalDate.parse(cost.date(), formatter)
             assert costDate.isAfter(localDateStartDate.minusDays(1)) && costDate.isBefore(localDateEndDate.plusDays(1))
         }
     }
