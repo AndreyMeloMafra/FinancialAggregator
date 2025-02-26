@@ -4,7 +4,6 @@ import com.ammdev.financialaggregator.domain.AggregatorResponse;
 import com.ammdev.financialaggregator.domain.Cost;
 import com.ammdev.financialaggregator.domain.Period;
 import com.ammdev.financialaggregator.usecase.aggregator.AggregateCostUsecase;
-import com.ammdev.financialaggregator.usecase.aggregator.CalculateTotalCostUsecase;
 import com.ammdev.financialaggregator.usecase.aggregator.ClassifyCostUsecase;
 import com.ammdev.financialaggregator.usecase.aggregator.FilterByPeriodUsecase;
 import com.ammdev.financialaggregator.usecase.validation.ValidatorUsecase;
