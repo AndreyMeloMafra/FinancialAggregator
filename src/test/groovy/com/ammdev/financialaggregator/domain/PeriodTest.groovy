@@ -11,8 +11,11 @@ class PeriodTest extends Specification {
         String startDate = start
         String endDate = end
 
-        when: "Filtrar por periodo"
-        new Period(startDate, endDate)
+        when: "Criar um periodo"
+        Period period = new Period(startDate, endDate)
+
+        and: "O periodo não deve ser criado"
+        period == null
 
         then: "Deve lançar uma exception de periodo inválido"
         def exception = thrown(InvalidDatePeriodException)
@@ -35,8 +38,11 @@ class PeriodTest extends Specification {
         String startDate = start
         String endDate = end
 
-        when: "Filtrar por periodo"
-        new Period(startDate, endDate)
+        when: "Criar um periodo"
+        Period period = new Period(startDate, endDate)
+
+        and: "O periodo não deve ser criado"
+        period == null
 
         then: "Deve lançar uma exception de periodo inválido"
         def exception = thrown(InvalidStringDateException)
@@ -56,8 +62,11 @@ class PeriodTest extends Specification {
         String startDate = "2021-01-01"
         String endDate = "2020-01-01"
 
-        when: "Filtrar por periodo"
-        new Period(startDate, endDate)
+        when: "Criar um periodo"
+        Period period = new Period(startDate, endDate)
+
+        and: "O periodo não deve ser criado"
+        period == null
 
         then: "Deve lançar uma exception de periodo inválido"
         thrown(DateRangePeriodException)

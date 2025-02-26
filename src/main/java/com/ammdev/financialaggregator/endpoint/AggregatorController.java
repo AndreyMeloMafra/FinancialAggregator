@@ -35,7 +35,6 @@ public class AggregatorController {
 
     @PostMapping("/credit-cards")
     public List<Cost> getCreditCardBillings(
-//            @RequestBody List<Cost> costs,
             @RequestHeader String startDate,
             @RequestHeader String endDate
     ) {

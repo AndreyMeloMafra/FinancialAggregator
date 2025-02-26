@@ -6,8 +6,6 @@ import com.ammdev.financialaggregator.domain.Period;
 import com.ammdev.financialaggregator.external.client.CardClient;
 import com.ammdev.financialaggregator.usecase.aggregator.AggregateProductCostUsecase;
 import com.ammdev.financialaggregator.usecase.aggregator.FilterByPeriodUsecase;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
