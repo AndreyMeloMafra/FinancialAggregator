@@ -15,17 +15,14 @@ import java.util.List;
 @Component
 public class AggregateCostUsecaseImpl implements AggregateCostUsecase {
     private final FilterByPeriodUsecase filterByPeriodUsecase;
-    private final CalculateTotalCostUsecase calculateTotalCostUsecase;
     private final ClassifyCostUsecase classifyCostUsecase;
     private final ValidatorUsecase validatorUsecase;
 
     public AggregateCostUsecaseImpl(
             FilterByPeriodUsecase filterByPeriodUsecase,
-            CalculateTotalCostUsecase calculateTotalCostUsecase,
             ClassifyCostUsecase classifyCostUsecase,
             ValidatorUsecase validatorUsecase) {
         this.filterByPeriodUsecase = filterByPeriodUsecase;
-        this.calculateTotalCostUsecase = calculateTotalCostUsecase;
         this.classifyCostUsecase = classifyCostUsecase;
         this.validatorUsecase = validatorUsecase;
     }
@@ -33,15 +30,9 @@ public class AggregateCostUsecaseImpl implements AggregateCostUsecase {
     @Override
     public AggregatorResponse execute(List<Cost> costs, Period period) {
         List<Cost> filteredCosts = filterByPeriodUsecase.execute(costs, period);
-
         doValidationCost(filteredCosts);
 
-        Double totalCost = calculateTotalCostUsecase.execute(filteredCosts);
-        AggregatorResponse classifiedCosts = classifyCostUsecase.classifyCost(filteredCosts);
-
-        classifiedCosts.setTotalValue(totalCost);
-
-        return classifiedCosts;
+        return classifyCostUsecase.classifyCost(filteredCosts);
     }
 
     private void doValidationCost(List<Cost> costs) {
