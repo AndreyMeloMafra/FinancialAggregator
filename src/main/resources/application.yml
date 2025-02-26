@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: FinancialAggregator
+
+api:
+  rest:
+    auth:
+      name: authenticator-service
+      url: http://localhost:8888
+      authenticate: /authenticate
+    product:
+      account:
+        name: account-service
+        url: http://localhost:8888
+#        get: /accounts
+        list: /accounts
+      financing:
+        name: financing-service
+        url: http://localhost:8888
+#        get: /financing
+        list: /financings
+      loan:
+        name: loan-service
+        url: http://localhost:8888
+#        get: /loan
+        list: /loans
+      card:
+        name: card-service
+        url: http://localhost:8888
+        credit:
+#          get: /credit-card
+          list: /credit-cards
+        debit:
+#          get: /debit-card
+          list: /debit-cards
