@@ -1,6 +1,6 @@
-package com.ammdev.financialaggregator.template;
+package com.ammdev.financialaggregator.template
 
-import com.ammdev.financialaggregator.domain.aggregate.Tax;
+import com.ammdev.financialaggregator.domain.aggregate.Tax
 
 class TaxTemplate {
 
@@ -8,6 +8,6 @@ class TaxTemplate {
         return Tax.builder()
                 .value(150.00)
                 .currency("BRL")
-                .build();
+                .build()
     }
 }

@@ -3,8 +3,6 @@ package com.ammdev.financialaggregator.entity;
 import com.ammdev.financialaggregator.domain.user.Permission;
 import lombok.Getter;
 
-import java.util.List;
-
 @Getter
 public enum PermissionName {
     CARD_USER("card"),

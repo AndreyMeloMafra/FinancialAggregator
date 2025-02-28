@@ -1,7 +1,7 @@
-package com.ammdev.financialaggregator.template;
+package com.ammdev.financialaggregator.template
 
-import com.ammdev.financialaggregator.domain.aggregate.CostType;
-import com.ammdev.financialaggregator.domain.aggregate.Instalment;
+import com.ammdev.financialaggregator.domain.aggregate.CostType
+import com.ammdev.financialaggregator.domain.aggregate.Instalment
 
 class InstalmentTemplate {
 
@@ -12,6 +12,6 @@ class InstalmentTemplate {
                 .costType(CostType.SINGLE)
                 .startDate("2025-01-03")
                 .lateFee(TaxTemplate.createTax())
-                .build();
+                .build()
     }
 }

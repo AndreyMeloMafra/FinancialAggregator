@@ -1,6 +1,6 @@
-package com.ammdev.financialaggregator.template;
+package com.ammdev.financialaggregator.template
 
-import com.ammdev.financialaggregator.domain.aggregate.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.Cost
 import com.ammdev.financialaggregator.domain.aggregate.CostSource
 
 class CostTemplate {
@@ -13,7 +13,7 @@ class CostTemplate {
                 .value(150.00)
                 .date("2021-01-01")
                 .instalment(InstalmentTemplate.createInstalment())
-                .build();
+                .build()
     }
 
     static Cost createFinancingCost() {
@@ -24,7 +24,7 @@ class CostTemplate {
                 .value(150.00)
                 .date("2021-01-01")
                 .instalment(InstalmentTemplate.createInstalment())
-                .build();
+                .build()
     }
 
     static Cost createLoanCost() {
@@ -35,7 +35,7 @@ class CostTemplate {
                 .value(150.00)
                 .date("2021-01-01")
                 .instalment(InstalmentTemplate.createInstalment())
-                .build();
+                .build()
     }
 
     static Cost createDebitCardCost() {
@@ -45,7 +45,7 @@ class CostTemplate {
                 .description("Description")
                 .value(150.00)
                 .date("2021-01-01")
-                .build();
+                .build()
     }
 
     static Cost createCreditCardWithoutInstalment() {
@@ -55,7 +55,7 @@ class CostTemplate {
                 .description("Description")
                 .value(150.00)
                 .date("2021-01-01")
-                .build();
+                .build()
     }
 
     static Cost createFinancingWithoutInstalment() {
@@ -65,7 +65,7 @@ class CostTemplate {
                 .description("Description")
                 .value(150.00)
                 .date("2021-01-01")
-                .build();
+                .build()
     }
 
     static Cost createLoanWithoutInstalment() {
@@ -75,7 +75,7 @@ class CostTemplate {
                 .description("Description")
                 .value(150.00)
                 .date("2021-01-01")
-                .build();
+                .build()
     }
 
     static Cost createCostWithNullValue() {
@@ -86,7 +86,7 @@ class CostTemplate {
                 .value(null)
                 .date("2021-01-01")
                 .instalment(InstalmentTemplate.createInstalment())
-                .build();
+                .build()
     }
 
     static Cost createCostWithInvalidPattern() {
@@ -97,7 +97,7 @@ class CostTemplate {
                 .value(150.0)
                 .date("202112-0001-0001")
                 .instalment(InstalmentTemplate.createInstalment())
-                .build();
+                .build()
     }
 
     static List<Cost> createManyCosts() {
@@ -126,7 +126,7 @@ class CostTemplate {
                         .date("2021-02-01")
                         .instalment(InstalmentTemplate.createInstalment())
                         .build()
-        );
+        )
     }
 
     static List<Cost> createCostsWithMultipleCostSources() {
@@ -171,7 +171,7 @@ class CostTemplate {
                         .date("2021-02-01")
                         .instalment(InstalmentTemplate.createInstalment())
                         .build()
-        );
+        )
     }
 
     static List<Cost> createManyCreditCardCosts() {
@@ -200,6 +200,6 @@ class CostTemplate {
                         .date("2021-02-01")
                         .instalment(InstalmentTemplate.createInstalment())
                         .build()
-        );
+        )
     }
 }
