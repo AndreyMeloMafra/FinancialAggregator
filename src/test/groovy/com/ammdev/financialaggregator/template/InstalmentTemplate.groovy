@@ -1,7 +1,7 @@
 package com.ammdev.financialaggregator.template;
 
-import com.ammdev.financialaggregator.domain.CostType;
-import com.ammdev.financialaggregator.domain.Instalment;
+import com.ammdev.financialaggregator.domain.aggregate.CostType;
+import com.ammdev.financialaggregator.domain.aggregate.Instalment;
 
 class InstalmentTemplate {
 

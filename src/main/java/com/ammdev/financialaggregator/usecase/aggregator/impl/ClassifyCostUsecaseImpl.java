@@ -1,8 +1,8 @@
 package com.ammdev.financialaggregator.usecase.aggregator.impl;
 
-import com.ammdev.financialaggregator.domain.AggregatorResponse;
-import com.ammdev.financialaggregator.domain.Cost;
-import com.ammdev.financialaggregator.domain.CostSource;
+import com.ammdev.financialaggregator.domain.aggregate.AggregatorResponse;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.CostSource;
 import com.ammdev.financialaggregator.usecase.aggregator.CalculateTotalCostUsecase;
 import com.ammdev.financialaggregator.usecase.aggregator.ClassifyCostUsecase;
 import org.springframework.stereotype.Component;

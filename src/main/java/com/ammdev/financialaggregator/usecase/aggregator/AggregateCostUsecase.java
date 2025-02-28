@@ -1,8 +1,8 @@
 package com.ammdev.financialaggregator.usecase.aggregator;
 
-import com.ammdev.financialaggregator.domain.AggregatorResponse;
-import com.ammdev.financialaggregator.domain.Cost;
-import com.ammdev.financialaggregator.domain.Period;
+import com.ammdev.financialaggregator.domain.aggregate.AggregatorResponse;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.Period;
 
 import java.util.List;
 

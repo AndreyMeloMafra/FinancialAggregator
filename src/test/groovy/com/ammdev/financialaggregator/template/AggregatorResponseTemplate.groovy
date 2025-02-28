@@ -1,8 +1,6 @@
 package com.ammdev.financialaggregator.template;
 
-import com.ammdev.financialaggregator.domain.AggregatorResponse;
-
-import java.util.List;
+import com.ammdev.financialaggregator.domain.aggregate.AggregatorResponse
 
 class AggregatorResponseTemplate {
 

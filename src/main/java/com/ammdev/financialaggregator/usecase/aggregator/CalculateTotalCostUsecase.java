@@ -1,6 +1,6 @@
 package com.ammdev.financialaggregator.usecase.aggregator;
 
-import com.ammdev.financialaggregator.domain.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
 
 import java.util.List;
 

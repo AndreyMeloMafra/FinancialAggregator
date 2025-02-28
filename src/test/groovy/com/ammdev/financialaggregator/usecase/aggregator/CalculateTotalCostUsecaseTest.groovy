@@ -1,6 +1,6 @@
 package com.ammdev.financialaggregator.usecase.aggregator
 
-import com.ammdev.financialaggregator.domain.Cost
+import com.ammdev.financialaggregator.domain.aggregate.Cost
 import com.ammdev.financialaggregator.exception.InvalidMonetaryValueException
 import com.ammdev.financialaggregator.template.CostTemplate
 import com.ammdev.financialaggregator.usecase.aggregator.impl.CalculateTotalCostUsecaseImpl

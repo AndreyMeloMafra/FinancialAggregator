@@ -1,6 +1,6 @@
 package com.ammdev.financialaggregator.template;
 
-import com.ammdev.financialaggregator.domain.Tax;
+import com.ammdev.financialaggregator.domain.aggregate.Tax;
 
 class TaxTemplate {
 

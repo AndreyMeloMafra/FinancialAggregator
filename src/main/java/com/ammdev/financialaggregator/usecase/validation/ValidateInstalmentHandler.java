@@ -1,8 +1,8 @@
 package com.ammdev.financialaggregator.usecase.validation;
 
-import com.ammdev.financialaggregator.domain.Cost;
-import com.ammdev.financialaggregator.domain.CostSource;
-import com.ammdev.financialaggregator.domain.Instalment;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.CostSource;
+import com.ammdev.financialaggregator.domain.aggregate.Instalment;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
