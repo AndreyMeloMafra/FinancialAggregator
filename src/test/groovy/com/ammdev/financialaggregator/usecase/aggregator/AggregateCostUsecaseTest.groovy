@@ -12,8 +12,6 @@ class AggregateCostUsecaseTest extends Specification {
 
     AggregateCostUsecase aggregateCostUsecase
 
-    CalculateTotalCostUsecase calculateTotalCostUsecase = Mock()
-
     FilterByPeriodUsecase filterByPeriodUsecase = Mock()
 
     ClassifyCostUsecase classifyCostUsecase = Mock()
@@ -21,7 +19,7 @@ class AggregateCostUsecaseTest extends Specification {
     ValidatorUsecase validatorUsecase = Mock()
 
     def setup() {
-        aggregateCostUsecase = new AggregateCostUsecaseImpl(filterByPeriodUsecase, calculateTotalCostUsecase, classifyCostUsecase, validatorUsecase)
+        aggregateCostUsecase = new AggregateCostUsecaseImpl(filterByPeriodUsecase, classifyCostUsecase, validatorUsecase)
     }
 
     def "Deve retornar um AggregatorResponse com o valor total e a lista de custos"() {
@@ -29,7 +27,7 @@ class AggregateCostUsecaseTest extends Specification {
         AggregatorResponse aggregatorResponse = AggregatorResponseTemplate.getOne()
 
         and: "Uma lista de custos válida"
-        List<Cost> costs = aggregatorResponse.creditCards
+        List<Cost> costs = aggregatorResponse.creditCards()
 
         and: "Um periodo para filtrar"
         String startDate = "2020-01-01"
@@ -37,15 +35,15 @@ class AggregateCostUsecaseTest extends Specification {
         Period period = new Period(startDate, endDate)
 
         1 * filterByPeriodUsecase.execute(costs, period) >> costs
-        1 * calculateTotalCostUsecase.execute(costs) >> 450.00
         1 * classifyCostUsecase.classifyCost(costs) >> aggregatorResponse
 
         when: "Executar o caso de uso para realizar o calculo de valor total"
         AggregatorResponse result = aggregateCostUsecase.execute(costs, period)
 
         then: "Deve retornar um AggregateResponse com o valor total e a lista de custos"
-        result.totalValue == 450.00
+        result.totalValue() == 450.00
 
+        and: "O validador deve ser chamado"
         1 * validatorUsecase.validate(costs)
     }
 }

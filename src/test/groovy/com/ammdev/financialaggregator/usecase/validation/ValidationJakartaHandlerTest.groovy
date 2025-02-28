@@ -33,6 +33,6 @@ class ValidationJakartaHandlerTest extends Specification {
 
         then: "Deve lançar uma exceção de UnprocessableEntity"
         def excpetion = thrown(UnprocessableEntityException)
-        excpetion.getError().getDetail() == "O campo date: deve estar no formato yyyy-MM-dd | "
+        excpetion.getError().detail() == "O campo date: deve estar no formato yyyy-MM-dd | "
     }
 }

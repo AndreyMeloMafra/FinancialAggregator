@@ -41,7 +41,7 @@ class ValidateInstalmentHandlerTest extends Specification {
 
         then: "Deve lançar uma exceção de UnprocessableEntity"
         def excpetion = thrown(UnprocessableEntityException)
-        excpetion.getError().getDetail() == "O campo instalment é obrigatório quando a fonte do custo é igual a CREDIT_CARD, FINANCING ou LOAN"
+        excpetion.getError().detail() == "O campo instalment é obrigatório quando a fonte do custo é igual a CREDIT_CARD, FINANCING ou LOAN"
 
         where: "Os tipos de custos são"
         costTemplate << [

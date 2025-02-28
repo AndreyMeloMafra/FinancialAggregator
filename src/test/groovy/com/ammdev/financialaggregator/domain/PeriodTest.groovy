@@ -11,14 +11,17 @@ class PeriodTest extends Specification {
         String startDate = start
         String endDate = end
 
-        when: "Filtrar por periodo"
-        new Period(startDate, endDate)
+        when: "Criar um periodo"
+        Period period = new Period(startDate, endDate)
+
+        and: "O periodo não deve ser criado"
+        period == null
 
         then: "Deve lançar uma exception de periodo inválido"
         def exception = thrown(InvalidDatePeriodException)
 
         and: "a mensagem deve ser a esperada"
-        exception.getError().getDetail() == Constants.INVALID_DATE_PERIOD_EXCEPTION_DETAIL
+        exception.getError().detail() == Constants.INVALID_DATE_PERIOD_EXCEPTION_DETAIL
 
         where: "as datas são"
         scenario            | start         | end
@@ -35,14 +38,17 @@ class PeriodTest extends Specification {
         String startDate = start
         String endDate = end
 
-        when: "Filtrar por periodo"
-        new Period(startDate, endDate)
+        when: "Criar um periodo"
+        Period period = new Period(startDate, endDate)
+
+        and: "O periodo não deve ser criado"
+        period == null
 
         then: "Deve lançar uma exception de periodo inválido"
         def exception = thrown(InvalidStringDateException)
 
         and: "a mensagem deve ser a esperada"
-        exception.getError().getDetail() == Constants.INVALID_STRING_DATE_EXCEPTION_DETAIL
+        exception.getError().detail() == Constants.INVALID_STRING_DATE_EXCEPTION_DETAIL
 
         where: "as datas são"
         scenario                | start         | end
@@ -56,8 +62,11 @@ class PeriodTest extends Specification {
         String startDate = "2021-01-01"
         String endDate = "2020-01-01"
 
-        when: "Filtrar por periodo"
-        new Period(startDate, endDate)
+        when: "Criar um periodo"
+        Period period = new Period(startDate, endDate)
+
+        and: "O periodo não deve ser criado"
+        period == null
 
         then: "Deve lançar uma exception de periodo inválido"
         thrown(DateRangePeriodException)

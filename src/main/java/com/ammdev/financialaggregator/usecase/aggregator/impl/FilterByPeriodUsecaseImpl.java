@@ -21,7 +21,7 @@ public class FilterByPeriodUsecaseImpl implements FilterByPeriodUsecase {
 
         return costs.stream()
                 .filter(cost ->
-                        DateUtils.isDateBetween(cost.getDate(), period.startDate(), period.endDate()))
+                        DateUtils.isDateBetween(cost.date(), period.startDate(), period.endDate()))
                 .toList();
     }
 }

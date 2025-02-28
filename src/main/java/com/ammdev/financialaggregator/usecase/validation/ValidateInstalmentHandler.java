@@ -18,8 +18,8 @@ public class ValidateInstalmentHandler extends AbstractValidationHandler {
     }
 
     private boolean validateInstalment(Cost cost) {
-        Instalment instalment = cost.getInstalment();
-        CostSource costSource = cost.getCostSource();
+        Instalment instalment = cost.instalment();
+        CostSource costSource = cost.costSource();
 
         return !ObjectUtils.isEmpty(instalment) || !isCostSourceRequiringInstalment(costSource);
     }

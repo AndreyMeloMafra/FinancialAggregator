@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Televisão",
+    "description": "Compra na rede carrefour",
+    "value": 1899.99,
+    "instalment": {
+      "number": 10,
+      "value": 189.99,
+      "startDate": "2025-01-01",
+      "costType": "INSTALMENT",
+      "lateFee": {
+        "value": 1.5,
+        "currency": "BRL"
+      }
+    },
+    "date": "2025-04-01",
+    "costSource": "CREDIT_CARD"
+  },
+  {
+    "name": "Sofá",
+    "description": "Compra na rede carrefour",
+    "value": 1159.99,
+    "instalment": {
+      "number": 5,
+      "value": 231.99,
+      "startDate": "2025-01-01",
+      "costType": "INSTALMENT",
+      "lateFee": {
+        "value": 1.5,
+        "currency": "BRL"
+      }
+    },
+    "date": "2025-04-01",
+    "costSource": "CREDIT_CARD"
+  }
+]

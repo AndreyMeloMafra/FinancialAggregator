@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface AggregateProductCostUsecase {
 
-    List<Cost> retrieveCost(List<Cost> costs, Period period);
+    List<Cost> retrieveCost(Period period);
 }

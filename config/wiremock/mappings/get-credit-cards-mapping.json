@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/credit-cards?userId=user&token=token"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "get-credit-cards-response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
