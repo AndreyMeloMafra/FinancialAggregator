@@ -1,4 +1,4 @@
-package com.ammdev.financialaggregator.entity;
+package com.ammdev.financialaggregator.entity.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

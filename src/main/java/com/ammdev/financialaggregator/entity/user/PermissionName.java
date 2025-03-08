@@ -1,4 +1,4 @@
-package com.ammdev.financialaggregator.entity;
+package com.ammdev.financialaggregator.entity.user;
 
 import com.ammdev.financialaggregator.domain.user.Permission;
 import lombok.Getter;

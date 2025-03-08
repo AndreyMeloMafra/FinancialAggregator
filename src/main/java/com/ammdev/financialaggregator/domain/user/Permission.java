@@ -1,6 +1,6 @@
 package com.ammdev.financialaggregator.domain.user;
 
-import com.ammdev.financialaggregator.entity.PermissionEntity;
+import com.ammdev.financialaggregator.entity.user.PermissionEntity;
 import lombok.Getter;
 
 @Getter

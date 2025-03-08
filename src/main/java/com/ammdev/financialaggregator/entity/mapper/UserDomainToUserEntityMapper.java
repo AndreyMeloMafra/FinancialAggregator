@@ -1,7 +1,7 @@
 package com.ammdev.financialaggregator.entity.mapper;
 
 import com.ammdev.financialaggregator.domain.user.User;
-import com.ammdev.financialaggregator.entity.UserEntity;
+import com.ammdev.financialaggregator.entity.user.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

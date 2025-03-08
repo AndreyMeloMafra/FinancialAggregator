@@ -1,6 +1,6 @@
 package com.ammdev.financialaggregator.repository;
 
-import com.ammdev.financialaggregator.entity.UserEntity;
+import com.ammdev.financialaggregator.entity.user.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

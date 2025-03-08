@@ -2,7 +2,7 @@ package com.ammdev.financialaggregator.config;
 
 import com.ammdev.financialaggregator.domain.mapper.UserEntityToUserDomainMapper;
 import com.ammdev.financialaggregator.domain.user.User;
-import com.ammdev.financialaggregator.entity.UserEntity;
+import com.ammdev.financialaggregator.entity.user.UserEntity;
 import com.ammdev.financialaggregator.repository.UserRepository;
 import com.ammdev.financialaggregator.service.JwtTokenService;
 import com.ammdev.financialaggregator.usecase.user.UserDetailsImpl;

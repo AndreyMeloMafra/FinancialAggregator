@@ -2,8 +2,8 @@ package com.ammdev.financialaggregator.domain.mapper;
 
 import com.ammdev.financialaggregator.domain.user.Permission;
 import com.ammdev.financialaggregator.domain.user.User;
-import com.ammdev.financialaggregator.entity.PermissionEntity;
-import com.ammdev.financialaggregator.entity.UserEntity;
+import com.ammdev.financialaggregator.entity.user.PermissionEntity;
+import com.ammdev.financialaggregator.entity.user.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

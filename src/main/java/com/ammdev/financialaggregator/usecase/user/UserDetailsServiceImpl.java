@@ -2,7 +2,7 @@ package com.ammdev.financialaggregator.usecase.user;
 
 import com.ammdev.financialaggregator.domain.mapper.UserEntityToUserDomainMapper;
 import com.ammdev.financialaggregator.domain.user.User;
-import com.ammdev.financialaggregator.entity.UserEntity;
+import com.ammdev.financialaggregator.entity.user.UserEntity;
 import com.ammdev.financialaggregator.exception.UserException;
 import com.ammdev.financialaggregator.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
