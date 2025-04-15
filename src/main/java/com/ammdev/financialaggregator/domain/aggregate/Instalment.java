@@ -1,6 +1,5 @@
-package com.ammdev.financialaggregator.domain;
+package com.ammdev.financialaggregator.domain.aggregate;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,27 +9,23 @@ import lombok.Builder;
 import java.io.Serializable;
 
 @Builder
-public record Cost(
-        @NotBlank(message = Constants.NOT_BLANK_MESSAGE)
-        String name,
-
-        @JsonInclude(JsonInclude.Include.NON_EMPTY)
-        String description,
+public record Instalment(
+        @NotNull(message = Constants.NOT_NULL_MESSAGE)
+        Integer number,
 
         @NotNull(message = Constants.NOT_NULL_MESSAGE)
         Double value,
 
-        @Valid
-        @JsonInclude(JsonInclude.Include.NON_EMPTY)
-        Instalment instalment,
-
         @NotBlank(message = Constants.NOT_BLANK_MESSAGE)
         @Pattern(regexp = Constants.DATE_PATTERN, message = Constants.DATE_PATTERN_MESSAGE)
-        String date,
+        String startDate,
+
+        @Valid
+        @NotNull(message = Constants.NOT_BLANK_MESSAGE)
+        CostType costType,
 
         @Valid
         @NotNull(message = Constants.NOT_NULL_MESSAGE)
-        CostSource costSource
+        Tax lateFee
 ) implements Serializable {
-
 }

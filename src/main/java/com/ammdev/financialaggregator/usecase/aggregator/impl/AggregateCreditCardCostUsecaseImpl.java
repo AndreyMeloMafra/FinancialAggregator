@@ -1,8 +1,7 @@
 package com.ammdev.financialaggregator.usecase.aggregator.impl;
 
-import com.ammdev.financialaggregator.domain.Cost;
-import com.ammdev.financialaggregator.domain.CostSource;
-import com.ammdev.financialaggregator.domain.Period;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.Period;
 import com.ammdev.financialaggregator.external.client.CardClient;
 import com.ammdev.financialaggregator.usecase.aggregator.AggregateProductCostUsecase;
 import com.ammdev.financialaggregator.usecase.aggregator.FilterByPeriodUsecase;
@@ -28,11 +27,9 @@ public class AggregateCreditCardCostUsecaseImpl implements AggregateProductCostU
         List<Cost> cardCostList =  cardClient.listCreditCard("user", "token");
         List<Cost> filteredCosts = filterByPeriodUsecase.execute(cardCostList, period);
 
-        List<Cost> cardCost = filteredCosts.stream().filter(cost -> CostSource.CREDIT_CARD.equals(cost.costSource())).toList();
+        validatorUsecase.validate(filteredCosts);
 
-        validatorUsecase.validate(cardCost);
-
-        return cardCost;
+        return filteredCosts;
 
 
     }

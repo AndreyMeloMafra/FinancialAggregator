@@ -1,8 +1,21 @@
 spring:
   application:
     name: FinancialAggregator
-
+  datasource:
+    url: jdbc:mysql://localhost:3306/financial_aggregator
+    username: root
+    password: ammdevpass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 api:
+  secret: 38a3be99e76b33235b21c8cfde894ca79899c721abb32fbb4a8dca1c1a92c111
+  issuer: ammdev-issuer
   rest:
     auth:
       name: authenticator-service

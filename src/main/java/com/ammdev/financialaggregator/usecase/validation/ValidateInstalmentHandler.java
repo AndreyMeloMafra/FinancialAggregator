@@ -1,8 +1,8 @@
 package com.ammdev.financialaggregator.usecase.validation;
 
-import com.ammdev.financialaggregator.domain.Cost;
-import com.ammdev.financialaggregator.domain.CostSource;
-import com.ammdev.financialaggregator.domain.Instalment;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.CostSource;
+import com.ammdev.financialaggregator.domain.aggregate.Instalment;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -32,6 +32,6 @@ public class ValidateInstalmentHandler extends AbstractValidationHandler {
 
     @Override
     protected String getErrorMessage() {
-        return "O campo instalment é obrigatório quando a fonte do custo é igual a CREDIT_CARD, FINANCING ou LOAN";
+        return "O campo instalmentEntity é obrigatório quando a fonte do custo é igual a CREDIT_CARD, FINANCING ou LOAN";
     }
 }

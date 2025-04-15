@@ -1,4 +1,4 @@
-package com.ammdev.financialaggregator.domain;
+package com.ammdev.financialaggregator.domain.aggregate;
 
 import com.ammdev.financialaggregator.exception.DateRangePeriodException;
 import com.ammdev.financialaggregator.exception.InvalidDatePeriodException;

@@ -1,6 +1,6 @@
 package com.ammdev.financialaggregator.usecase.validation
 
-import com.ammdev.financialaggregator.domain.Cost
+import com.ammdev.financialaggregator.domain.aggregate.Cost
 import com.ammdev.financialaggregator.exception.UnprocessableEntityException
 import com.ammdev.financialaggregator.template.CostTemplate
 import spock.lang.Specification
@@ -41,7 +41,7 @@ class ValidateInstalmentHandlerTest extends Specification {
 
         then: "Deve lançar uma exceção de UnprocessableEntity"
         def excpetion = thrown(UnprocessableEntityException)
-        excpetion.getError().detail() == "O campo instalment é obrigatório quando a fonte do custo é igual a CREDIT_CARD, FINANCING ou LOAN"
+        excpetion.getError().detail() == "O campo instalmentEntity é obrigatório quando a fonte do custo é igual a CREDIT_CARD, FINANCING ou LOAN"
 
         where: "Os tipos de custos são"
         costTemplate << [

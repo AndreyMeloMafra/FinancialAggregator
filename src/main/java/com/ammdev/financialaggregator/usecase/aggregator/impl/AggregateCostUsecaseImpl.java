@@ -1,8 +1,8 @@
 package com.ammdev.financialaggregator.usecase.aggregator.impl;
 
-import com.ammdev.financialaggregator.domain.AggregatorResponse;
-import com.ammdev.financialaggregator.domain.Cost;
-import com.ammdev.financialaggregator.domain.Period;
+import com.ammdev.financialaggregator.domain.aggregate.AggregatorResponse;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.Period;
 import com.ammdev.financialaggregator.usecase.aggregator.AggregateCostUsecase;
 import com.ammdev.financialaggregator.usecase.aggregator.ClassifyCostUsecase;
 import com.ammdev.financialaggregator.usecase.aggregator.FilterByPeriodUsecase;
@@ -29,12 +29,8 @@ public class AggregateCostUsecaseImpl implements AggregateCostUsecase {
     @Override
     public AggregatorResponse execute(List<Cost> costs, Period period) {
         List<Cost> filteredCosts = filterByPeriodUsecase.execute(costs, period);
-        doValidationCost(filteredCosts);
+        validatorUsecase.validate(costs);
 
         return classifyCostUsecase.classifyCost(filteredCosts);
-    }
-
-    private void doValidationCost(List<Cost> costs) {
-        validatorUsecase.validate(costs);
     }
 }

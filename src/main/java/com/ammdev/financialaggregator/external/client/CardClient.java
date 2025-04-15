@@ -1,6 +1,6 @@
 package com.ammdev.financialaggregator.external.client;
 
-import com.ammdev.financialaggregator.domain.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

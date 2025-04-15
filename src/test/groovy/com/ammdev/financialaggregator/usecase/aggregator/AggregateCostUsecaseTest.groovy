@@ -1,8 +1,8 @@
 package com.ammdev.financialaggregator.usecase.aggregator
 
-import com.ammdev.financialaggregator.domain.AggregatorResponse
-import com.ammdev.financialaggregator.domain.Cost
-import com.ammdev.financialaggregator.domain.Period
+import com.ammdev.financialaggregator.domain.aggregate.AggregatorResponse
+import com.ammdev.financialaggregator.domain.aggregate.Cost
+import com.ammdev.financialaggregator.domain.aggregate.Period
 import com.ammdev.financialaggregator.template.AggregatorResponseTemplate
 import com.ammdev.financialaggregator.usecase.aggregator.impl.AggregateCostUsecaseImpl
 import com.ammdev.financialaggregator.usecase.validation.ValidatorUsecase

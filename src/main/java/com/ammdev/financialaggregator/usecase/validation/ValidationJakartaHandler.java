@@ -1,6 +1,6 @@
 package com.ammdev.financialaggregator.usecase.validation;
 
-import com.ammdev.financialaggregator.domain.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;

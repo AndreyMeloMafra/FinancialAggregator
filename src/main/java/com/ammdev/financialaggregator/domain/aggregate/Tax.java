@@ -1,4 +1,4 @@
-package com.ammdev.financialaggregator.domain;
+package com.ammdev.financialaggregator.domain.aggregate;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

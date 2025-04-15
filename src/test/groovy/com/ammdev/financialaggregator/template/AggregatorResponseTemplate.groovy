@@ -1,8 +1,6 @@
-package com.ammdev.financialaggregator.template;
+package com.ammdev.financialaggregator.template
 
-import com.ammdev.financialaggregator.domain.AggregatorResponse;
-
-import java.util.List;
+import com.ammdev.financialaggregator.domain.aggregate.AggregatorResponse
 
 class AggregatorResponseTemplate {
 
@@ -10,6 +8,6 @@ class AggregatorResponseTemplate {
         return AggregatorResponse.builder()
                 .totalValue(450.0)
                 .creditCards(List.of(CostTemplate.createCreditCardCost()))
-                .build();
+                .build()
     }
 }

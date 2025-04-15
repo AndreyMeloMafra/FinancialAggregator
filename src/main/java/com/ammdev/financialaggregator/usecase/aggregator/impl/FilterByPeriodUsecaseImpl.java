@@ -1,7 +1,7 @@
 package com.ammdev.financialaggregator.usecase.aggregator.impl;
 
-import com.ammdev.financialaggregator.domain.Cost;
-import com.ammdev.financialaggregator.domain.Period;
+import com.ammdev.financialaggregator.domain.aggregate.Cost;
+import com.ammdev.financialaggregator.domain.aggregate.Period;
 import com.ammdev.financialaggregator.usecase.aggregator.FilterByPeriodUsecase;
 import com.ammdev.financialaggregator.utils.DateUtils;
 import org.springframework.stereotype.Component;
