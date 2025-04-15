@@ -3,6 +3,8 @@ package com.ammdev.financialaggregator.config;
 import com.ammdev.financialaggregator.domain.mapper.UserEntityToUserDomainMapper;
 import com.ammdev.financialaggregator.domain.user.User;
 import com.ammdev.financialaggregator.entity.user.UserEntity;
+import com.ammdev.financialaggregator.exception.AuthenticationException;
+import com.ammdev.financialaggregator.exception.UserException;
 import com.ammdev.financialaggregator.repository.UserRepository;
 import com.ammdev.financialaggregator.service.JwtTokenService;
 import com.ammdev.financialaggregator.usecase.user.UserDetailsImpl;
@@ -10,19 +12,24 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Optional;
 
 @Component
 public class UserAuthenticationFilter extends OncePerRequestFilter {
 
+    public static final String AUTHORIZATION_HEADER_PARAM = "Authorization";
     @Autowired
     private JwtTokenService jwtTokenService;
 
@@ -30,7 +37,7 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
     private UserRepository userRepository;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         if (!checkIfEndpointIsNotPublic(request)) {
             filterChain.doFilter(request, response);
             return;
@@ -38,32 +45,37 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
 
         String token = recoveryToken(request);
 
-        if (token != null) {
-            String subject = jwtTokenService.getSubjectFromToken(token);
-            UserEntity userEntity = userRepository.findByEmail(subject).get();
-            User user = UserEntityToUserDomainMapper.INSTANCE.map(userEntity);
+        String subject = jwtTokenService.getSubjectFromToken(token);
+        Optional<UserEntity> userEntity = userRepository.findByEmail(subject);
 
-            UserDetailsImpl userDetails = new UserDetailsImpl(user);
+        UserDetailsImpl userDetails = getUserDetails(userEntity);
 
-            Authentication authentication =
-                    new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
+        Authentication authentication =
+                new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
 
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        } else {
-            throw new RuntimeException("O token está ausente.");
-        }
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
         filterChain.doFilter(request, response);
     }
 
-    private String recoveryToken(HttpServletRequest request) {
-        String authorizationHeader = request.getHeader("Authorization");
-
-        if (authorizationHeader != null) {
-            return authorizationHeader.replace("Bearer ", "");
+    private static UserDetailsImpl getUserDetails(Optional<UserEntity> userEntity) {
+        if (userEntity.isEmpty()) {
+            throw new UserException("Usuário não encontrado");
         }
 
-        return null;
+        User user = UserEntityToUserDomainMapper.INSTANCE.map(userEntity.get());
+
+        return new UserDetailsImpl(user);
+    }
+
+    private String recoveryToken(HttpServletRequest request) {
+        String authorizationHeader = request.getHeader(AUTHORIZATION_HEADER_PARAM);
+
+        if (ObjectUtils.isEmpty(authorizationHeader)) {
+            throw new AuthenticationException(HttpStatus.UNAUTHORIZED.value(), "O token está ausente.");
+        }
+
+        return authorizationHeader.replace("Bearer ", "");
     }
 
     private boolean checkIfEndpointIsNotPublic(HttpServletRequest request) {
