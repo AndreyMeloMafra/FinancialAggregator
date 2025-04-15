@@ -10,16 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@RestController
 @RequestMapping("/aggregator/v1")
 public class AggregatorController {
 
     private final AggregateCostUsecase aggregateCostUsecase;
-    private final AggregateProductCostUsecase aggregateProductCostUsecase;
 
-    public AggregatorController(AggregateCostUsecase aggregateCostUsecase, AggregateCreditCardCostUsecaseImpl aggregateProductCostUsecase) {
+    public AggregatorController(AggregateCostUsecase aggregateCostUsecase) {
         this.aggregateCostUsecase = aggregateCostUsecase;
-        this.aggregateProductCostUsecase = aggregateProductCostUsecase;
     }
 
     @PostMapping("/cost")
@@ -32,15 +30,4 @@ public class AggregatorController {
 
         return aggregateCostUsecase.execute(costs, period);
     }
-
-    @PostMapping("/credit-cards")
-    public List<Cost> getCreditCardBillings(
-            @RequestHeader String startDate,
-            @RequestHeader String endDate
-    ) {
-        Period period = new Period(startDate, endDate);
-
-        return aggregateProductCostUsecase.retrieveCost(period);
-    }
-
 }

@@ -29,12 +29,8 @@ public class AggregateCostUsecaseImpl implements AggregateCostUsecase {
     @Override
     public AggregatorResponse execute(List<Cost> costs, Period period) {
         List<Cost> filteredCosts = filterByPeriodUsecase.execute(costs, period);
-        doValidationCost(filteredCosts);
+        validatorUsecase.validate(costs);
 
         return classifyCostUsecase.classifyCost(filteredCosts);
-    }
-
-    private void doValidationCost(List<Cost> costs) {
-        validatorUsecase.validate(costs);
     }
 }
