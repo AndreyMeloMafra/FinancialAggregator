@@ -32,6 +32,6 @@ public class ValidateInstalmentHandler extends AbstractValidationHandler {
 
     @Override
     protected String getErrorMessage() {
-        return "O campo instalment é obrigatório quando a fonte do custo é igual a CREDIT_CARD, FINANCING ou LOAN";
+        return "O campo instalmentEntity é obrigatório quando a fonte do custo é igual a CREDIT_CARD, FINANCING ou LOAN";
     }
 }
