@@ -28,13 +28,4 @@ public class CreditCardController {
 
         return aggregateProductCostUsecase.retrieveCost(period);
     }
-
-    @PostMapping
-    public List<Cost> createCreditCardBillings(
-            @RequestBody
-    ) {
-        Period period = new Period("", "");
-        return aggregateProductCostUsecase.retrieveCost(period);
-    }
-
 }
